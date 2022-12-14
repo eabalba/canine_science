@@ -1,0 +1,85 @@
+/* === CONTACT COLUMNS BLOCK STYLING === */
+.contact-columns{
+	display: grid;
+    grid-template-areas:
+                "a  b"
+                "c  b"
+                "d  b";
+    gap: var(--space-gap);
+}
+@media (max-width: 820px){
+    .contact_columns_container{
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact_columns_content_column{
+    grid-area: a;
+}
+.social_links_intro{
+	grid-area: c;
+}
+.contact_columns_socials_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: var(--space-b);
+    gap: var(--space-a);
+	grid-area: d;
+}
+.contact_columns_form_column{
+    grid-area: b;
+}
+.contact_columns_socials{
+   max-width: 140px;
+    flex-basis: 20%;
+    flex-grow: 1;
+    min-width: 120px;
+    svg{
+        height: 20px;
+        width: 20px;
+        transition: var(--transition);
+    }
+}
+.contact_columns_socials .teachers_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+
+.contact_columns_socials img,
+.contact_columns_teachers_name,
+.contact_columns_social_links{
+    padding: 0;
+    margin-bottom: 11px;
+}
+.contact_columns_socials img{
+   aspect-ratio: 1/1;
+    width: 100%;
+}
+.contact_columns_teachers_name{
+    font-size: var(--step-1);
+    font-weight: var(--font-weight-regular);
+}
+.contact_columns_social_links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    a:focus, a:hover{
+        svg{
+            fill: var(--color-primary);
+        }
+    }
+}
+
+
+@media(max-width: 1024px){
+    .contact-columns{
+         grid-template-areas:
+                    "a  a"
+                    "b  b"
+                    "c  c"
+			 		"d	d";
+    }
+}

@@ -1,0 +1,106 @@
+/* === GALLERY AND TEXT BLOCK STYLING === */
+
+.gallery-and-text{
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    gap: var(--space-gap);
+    h2{
+        font-size: var(--step-4);
+    }
+}
+.gallery-and-text.left_image{
+    grid-template-columns: 8fr 4fr;
+}
+
+
+/* --- Text and Gallery Left and Right Positioning --- */
+.gallery-and-text.left_image .gt_gallery_column{
+    order: 1;
+}
+.gallery-and-text.left_image .gt_text_column{
+    order: 2;
+}
+.gallery-and-text.right_image .gt_text_column{
+    order: 1;
+}
+.gallery-and-text.right_image .gt_gallery_column{
+    order: 2;
+}
+
+
+/* --- Gallery and Text Block Text Column --- */
+.gt_text_column{
+    display: flex;
+    flex-direction: column;
+}
+.gt_text_column.middle_text{
+    justify-content: center;
+}
+.gt_text_column.top_text{
+    justify-content: flex-start;
+}
+.gt_text_column.bottom_text{
+    justify-content: flex-end;
+}
+.gt_text_column_heading{
+    font-size: var(--step-4)
+}
+/* --- Gallery and Text Block Gallery Column --- */
+.gt_gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-gap);
+    padding-left: 0;
+}
+
+.gt_gallery li{
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    margin:0;
+    flex-grow: 1;
+    flex-basis: 35%;
+    img{ 
+        object-fit: cover;
+        width: 100%;
+        aspect-ratio: 1.1/1;
+        max-height: 350px;
+    }
+    &:nth-child(5n -3), &:nth-child(5n){
+        flex-basis: 45%;
+        img{
+            aspect-ratio: 1.35/1;
+        }
+    }
+    &:first-child,&:nth-child(2n):last-child{
+        flex-basis: 100%;
+        img{
+            aspect-ratio: 2.5/1;
+        }
+    }
+    
+
+}
+
+@media(max-width: 1200px){
+        .gallery-and-text{
+        grid-template-columns: 6fr 6fr!important;
+    }
+}
+@media(max-width: 1024px){
+    .gallery-and-text{
+        grid-template-columns: 1fr!important;
+    }
+    .gallery-and-text .gt_gallery_column{
+        order: 2!important;
+    }
+}
+@media(max-width: 480px){
+    .gt_gallery li{
+        flex-basis: 100%!important;
+        img{
+            aspect-ratio: auto!important;
+            max-height: 50vh!important;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+/* === TEACHER'S PROFILE BLOCK STYLING === */
+
+
+.teachers_profile_heading_wrapper{
+    padding-bottom:  var(--space-d);
+    text-align: center;
+}
+.teachers_heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+/* --- Teachers Profile Media Row --- */
+.teachers_profile_container{
+    display: grid;
+    grid-template-areas: "name ."
+    "photo bio ";
+    grid-template-columns: 3fr 9fr;
+    gap: var(--space-gap);
+    margin-bottom: var(--space-row-margin);
+}
+.teachers_profile_container.video{
+
+    grid-template-areas: "name video"
+    "photo video"
+    "bio bio";
+   
+}
+.teachers_heading{
+    grid-area: name;
+    h3{
+        margin: 0;
+    }
+}
+.teachers_photo{
+    grid-area: photo;
+    align-self: end;
+    img{
+        aspect-ratio: 1/1;
+    }
+}
+.video{
+    grid-area: video;
+}
+.teachers_profile_body{
+    grid-area: bio;
+}
+
+
+
+
+/* --- Teachers Profile Content Row --- */
+.teachers_profile_body > div{
+    columns: 2;
+    column-gap: var(--space-gap);
+    p{
+        -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+    }
+}
+.button svg{
+    stroke: white
+}
+.button:hover, .button:focus{
+    svg{
+        stroke: var(--color-primary);
+    }
+}
+@media(max-width: 768px){
+    .teachers_profile_container{
+        grid-template-areas: 
+        "photo name"
+        "bio bio";
+        grid-template-columns: 150px auto;
+    }
+    .teachers_profile_container.video{
+        grid-template-areas: 
+        "photo name"
+        "video video"
+        "bio bio";
+    }
+    .teachers_profile_body > div{
+        columns: 1;
+    }
+}
+@media(max-width: 400px){
+    .teachers_profile_container{
+        grid-template-columns: 100px auto;
+    }
+    h3{
+        font-size: var(--step-3);
+    }
+}

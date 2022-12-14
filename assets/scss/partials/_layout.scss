@@ -1,0 +1,96 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+}
+main{
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    h1{
+        margin-top: 0;
+    }
+}
+.main--simple{
+    display: block;
+}
+.main--with-aside{
+    max-width: var(--width-wide-inset);
+    width: var(--width-full-inset);
+    grid-template-areas: 
+                    "a a"
+                    "b c"
+                    "d d";
+                    grid-template-columns: 8fr 4fr;
+    margin: 0 auto;
+    gap: var(--space-gap);
+
+}
+@media(Max-width: 1024px){
+    .main--with-aside{
+        grid-template-areas: 
+                        "a"
+                        "b"
+                        "c"
+                        "d";
+                        grid-template-columns: 1fr;
+    
+    }
+}
+.blog-featured-image{
+    grid-area: a;
+}
+article{
+    grid-area: b;
+}
+aside{
+    grid-area: c;
+}
+.related-posts{
+    grid-area: d;
+}
+
+.block, .main--simple > article > *, .main--simple > *:not(.block), .woocommerce-page:not(.woocommerce-shop):not(.tax-product_cat) main{
+    width: var(--width-full-inset);
+    max-width: var(--width-wide-inset);
+    margin-left: auto;
+    margin-right: auto;
+    &.alignfull{
+        max-width: var(--width-full-inset);
+    }
+}
+.main--simple > *:not(.block):first-child{
+    margin-top: var(--header-height);
+}
+.block{
+    margin-top: var(--space-row-margin);
+    margin-bottom: var(--space-row-margin);
+    padding: 0;
+}
+.block.has-background{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: var(--space-row-margin) var(--space-gutter);
+    width: var(--width-full);
+    max-width: var(--width-wide);
+    &.alignfull{
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+.woocommerce-page:not(.woocommerce-shop):not(.single-product):not(.tax-product_cat){
+    padding-top: var(--header-height);
+    main{
+        
+        background-color: var(--color-mgrey);
+        padding: var(--space-panel-padding) 0;
+        border-radius: var(--border-radius-large);
+        h1{
+            margin-top: 0!important;
+        }
+        
+    }
+}

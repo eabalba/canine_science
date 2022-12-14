@@ -1,0 +1,282 @@
+/* --- CONTACT FORM 7 --- */
+
+
+.contact_columns_form_column{
+    background-color: var(--color-mgrey);
+    padding: var(--space-c);
+    border-radius: var(--border-radius-large);
+}
+
+/*form fields*/
+input, select, textarea, option{
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    }
+    input,
+    select {
+        width:  100%;
+        position:  relative;
+        z-index:  2;
+        margin-bottom:  0;
+        border-radius: var(--border-radius-small);
+        padding: 10px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"]{
+    margin: 15.5px 0;
+    width: auto;
+    background-color: var(--color-lgrey);
+    border: 1px solid var(--color-lgrey);
+    opacity: 1;
+    }
+    textarea{
+    padding: 10px;
+    width:  100%;
+    height: 150px;
+    position:  relative;
+    z-index:  2;
+    margin-bottom:  0;
+    resize: vertical;
+    display:  block;
+    border-radius: var(--border-radius-small);
+    }
+
+
+    label{
+    margin-bottom: 5px;
+
+    }
+.wpcf7{
+    input, select, textarea, option{
+
+    color:  white;
+
+
+    }
+    input[type='text'],
+    input[type='email'],
+    input[type='tel'],
+    select {
+
+    background-color:  transparent;
+    background:  transparent;
+    border:  none;
+    padding: 15px 20px;
+    
+    min-height:  44px;
+    border-radius: 10px 10px 0 0;
+
+    }
+
+    textarea{
+
+    background-color:  transparent;
+    background:  transparent;
+    border:  none;
+    
+    -webkit-appearance:none;
+
+    }
+    select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 10px);
+    background-position-y: 12px;
+    }
+    select:focus, input:focus, textarea:focus{
+    border:  none;
+    outline: none;
+    display:  block;
+    }
+    label{
+        display: block;
+    }
+}
+
+/* -- CONTACT FORMS -- */
+/*layout*/
+.form__grid{
+    display:  grid;
+    grid-template-columns: 1fr 1fr; 
+    width:  100%;
+    gap: 15px;
+}
+.form__col-2{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.form__col-right{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.form__col-right .form__row{
+    justify-content:  flex-end;
+    display:  flex;
+}
+.ajax-loader{
+    order:  -1;
+}
+.wpcf7-form-control-wrap{ /*forces  inputs to full width of their columns/rows*/
+    display:  block;
+    width:  100%;
+    position:  relative;
+}
+@media(max-width: 1024px){
+    .form__grid{
+        grid-template-columns: 1fr;
+    }
+    .form__col-2{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .form__col-right{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+}
+
+
+.wpcf7-list-item{
+    margin-left:  20px;
+    display: flex;
+    align-items: center;
+}
+.wpcf7-list-item-label{
+    padding-left:  20px;
+}
+
+
+/*background panel*/
+.wpcf7-form-control-wrap:not(.consent):not([data-name="consent"]):before{
+    content:  '';
+    position:  absolute;
+    top:  0;
+    left:  0;
+    right:  0;
+    height:  100%;
+    background-color:  #5C5C5C;
+    border: 1px solid var(--color-lgrey);
+    border-radius: 10var(--border-radius-small);
+}
+
+/*move labels into placeholder position*/
+.form__row{
+    display:  flex;
+    width:  100%;
+    position:  relative;
+}
+.form__row> label{
+    padding-left:  5px;
+    padding-right:  5px;
+    transition:  0.2s ease-out;
+    position:  relative;
+    z-index: 2;
+    margin-bottom: 0;
+}
+.form__row:not(.radio)> label{
+    position:  absolute;
+    background:  #5C5C5C;
+    left: 15px;
+    top:  13px;
+}
+.form__row:not(.radio).active> label{
+    top:  -12px;
+    font-size:  14px;
+    background: linear-gradient(0deg, #5C5C5C 0%, #5C5C5C 50%, var(--color-mgrey) 50%, var(--color-mgrey) 100%);
+    z-index:  4;
+}
+.wpcf7-form-control{
+    position:  relative;
+    z-index: 2;
+}
+.wpcf7-radio{
+    display:  flex;
+}
+.form__row.radio{
+    display:  block;
+    position: relative;
+}
+.form__row.radio .wpcf7-form-control-wrap{
+    position: static;
+}
+.form__row.radio> label{
+    padding-top: 13px;
+    padding-left:  20px;
+    display:  block;
+}
+
+/*gdpr consent input*/
+.wpcf7-acceptance .wpcf7-list-item{
+    margin-left:  0;
+}
+.wpcf7-acceptance .wpcf7-list-item label{
+    display:  flex;
+    position: relative;
+}
+
+/*Checkmark of the fake checkbox*/
+.wpcf7{
+        input[type="checkbox"]{
+        opacity:  0;
+    }
+    input[type="checkbox"] + span{
+        line-height: 1.4em;
+    }
+    input[type="checkbox"] + span::after {
+        content:  '';
+        width:  20px;
+        height:  20px;
+        background-color:  #5C5C5C;
+        border:  1px solid var(--color-lgrey);
+        position:  absolute;
+        top:  2px;
+        left:  0;
+    }
+    input[type="checkbox"]:focus + span::after{
+        border:  1px solid var(--color-text);
+        cursor:  pointer;
+    }
+    input[type="checkbox"]:checked + span::after {
+        content:  url('data: image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="white" d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>');
+    }
+}
+/*submit button */
+input.wpcf7-submit{
+    margin-top:  0;
+    margin-bottom:  0;
+    box-shadow: none;
+    width: 100%;
+}
+ /*error messages*/
+.wpcf7-not-valid-tip{
+    color:  white;
+    display:  block;
+    margin-top:  5px;
+    padding-left:  20px;
+    padding-bottom: 5px;
+    position: relative;
+    z-index: 2;;
+}
+.wpcf7-response-output{
+    border: none!important;
+    padding:  0!important;
+    margin:  0!important;
+    font-style: italic;
+}
+
+.wpcf7-spinner{
+    position: absolute;
+    lefT: 100%;
+    margin: 0 0 0 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(var(--space-gutter) - 10px);
+}
+
+
+

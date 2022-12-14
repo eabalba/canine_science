@@ -1,0 +1,130 @@
+/* --- SINGLE POSTS STYLING --- */
+.blog-featured-image {
+    margin: var(--header-height) 0 0;
+    width: 100%;
+}
+.blog-featured-image img{
+    object-fit: cover;
+    height: auto;
+    max-height: 50vh;
+    min-height: 300px;
+    width: 100%;
+    display: block;
+}
+.single-post-title{
+    font-size: var(--step-4);
+    color: var(--color-primary);
+}
+.top-posts{
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-mgrey);
+    padding: var(--space-gap);
+}
+.top-post{
+    display:flex;
+    flex-direction:row;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    text-decoration: none!important;
+    p{
+        color: white;
+        transition: var(--transition);
+        flex-basis: 50%;
+        flex-grow: 1;
+    }
+    &:hover, &:focus{
+        p{
+            color: var(--color-primary);
+        }
+    }
+}
+.top-post:not(:last-child){
+    margin-bottom: var(--space-a);
+}
+.top-post figure{
+    margin: 0;
+    width: 100px;
+    flex-shrink: 0;
+}
+.top-post figure img{
+   object-fit: cover;
+   border-radius: 8px;
+   width: 100px;
+   height: 100px;
+   display: block;
+}
+.top-articles-heading{
+    font-size: var(--step-2);
+}
+
+.related-posts{
+    margin: var(--space-d) auto ;
+}
+.related-posts-heading{
+    margin-bottom: var(--space-c);
+    font-size: var(--step-4);
+}
+
+.related-posts-wrapper{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    gap: var(--space-gap);
+    position: relative;
+}
+@media (max-width: 1140px){
+    .related-posts-wrapper{
+        grid-template-columns: 6fr 6fr;
+    }
+    
+}
+@media (max-width: 768px){
+    .related-posts-wrapper{
+        grid-template-columns: 12fr;
+        justify-items: center;
+    }
+    
+}
+.blog-sidebar-cta{
+    background-color: var(--color-lgrey);
+    border-radius: var(--border-radius-small);
+    padding: var(--space-gap);
+    margin-top: var(--space-gap);
+    color: var(--color-dgrey)
+}
+
+.blog-sidebar-cta h3{
+    color: var(--color-gold);
+
+}
+.blog-sidebar-cta .buttons{
+    margin: 0!important;
+}
+.blog-sidebar-cta .button{
+    border: 1px solid var(--color-gold);
+}
+
+.blog-sidebar-cta .button:hover{
+    
+    background-color: var(--color-lgrey)
+}
+.blog-sidebar-cta .button:hover a{
+    color: var(--color-gold)!important;
+}
+.blog-sidebar-cta .button a{
+    color: #fff!important;
+    text-decoration: none;
+}
+
+.single article> .wp-block-image{
+    width: 100%;
+    margin: 0;
+    img{
+        object-fit: cover;
+        height: auto;
+        max-height: 50vh;
+        min-height: 300px;
+        width: 100%;
+    }
+}

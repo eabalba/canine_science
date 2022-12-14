@@ -1,0 +1,183 @@
+/* === MEMBERSHIP CARDS BLOCK STYLING === */
+
+.membership_cards_header{
+    max-width: var(--width-narrow);
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: var(--space-row-padding);
+}
+
+.membership_cards_container{
+    display: flex;
+    padding-top: var(--space-row-padding);
+    gap: var(--space-gap);
+    position: relative;
+    max-width: calc(var(--width-wide) * 5/6);
+    margin-left: auto;
+    margin-right: auto;
+}
+.membership_card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1%;
+    flex-grow: 1;
+    border: 2px solid;
+    border-radius: var(--border-radius-large);
+    padding: var(--space-panel-padding);
+    background-color: var(--color-mgrey);
+    transition: var(--transition);
+    color: white;
+}
+
+@media (max-width: 820px){
+    .membership_cards_container{
+        flex-wrap: wrap;
+    }
+    .membership_card{
+        flex-basis: 100%;
+    }
+
+}
+.membership_card_link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--border-radius-large);
+}
+
+.membership_card hr{
+    height: 2px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.membership_card_content{
+    flex-grow: 1;
+    margin-bottom: 30px;
+}
+
+/* --- Styling for different card colours --- */
+            
+/*-light grey card-*/
+.membership_card.color-lgrey:hover,
+.membership_card.color-lgrey:hover .button{
+    box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.4);
+}
+.color-lgrey,
+.color-lgrey .membership_card_separator{
+    border-color: var(--color-lgrey);
+}
+.color-lgrey 
+{
+    h2, h3, h4 h5, h6{
+        color: var(--color-lgrey);
+    }
+}
+.color-lgrey .button{
+    background-color: var(--color-lgrey);
+    color:var(--color-dgrey);
+}
+
+/*-gold card-*/
+.membership_card.color-gold:hover,
+.membership_card.color-gold:hover .button{
+    box-shadow: 0px 0px 10px 1px var(--color-gold);
+}
+.color-gold,
+.color-gold hr{
+    border-color: var(--color-gold);
+}
+.color-gold {
+    h2, h3, h4 h5, h6{
+        color: var(--color-gold);
+    }
+}
+.color-gold .button{
+    background-color: var(--color-gold);
+    color: white;
+}
+
+
+
+
+
+/* --- Dots on top of the cards --*/
+.membership_cards_container::before{
+    content:'';
+    position: absolute;
+    top:calc((var(--space-row-margin) * -1) + 10px);
+    left: calc(50% - 5px);
+    display: block;
+    border: 1px solid #fff;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+}
+.membership_cards_container::after{
+    content:'';
+    position: absolute;
+    display: block;
+    height: calc((var(--space-g)) - 20px);
+    width:4px;
+    top: calc((var(--space-row-margin) * -1) + 25px);
+    left: 50% ;
+    background-image: radial-gradient(circle, #fff 20%, rgba(0, 0, 0, 0) 0%);
+    background-position: left;
+    background-size: 2px 10px;
+    background-repeat: repeat-y;
+}
+
+.membership_card:after {
+    content:'';
+    position: absolute;
+    display: block;
+    height: calc((var(--space-g)) - 20px);
+    width: 10px;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    background-image: radial-gradient(circle, #fff 20%, rgba(0, 0, 0, 0) 0%);
+    background-position: left;
+    background-size: 2px 10px;
+    background-repeat: repeat-y;
+}
+
+
+.membership_card:before {
+    content:'';
+    position: absolute;
+    display: block;
+    width: calc(50% + (var(--space-b) / 2));
+    top: calc((var(--space-row-margin) * -1) + 10px);
+    height: 10px;
+    background-image: radial-gradient(circle, #fff 20%, rgba(0, 0, 0, 0) 0%);
+    background-position: top;
+    background-size: 10px 2px;
+    background-repeat: repeat-x;
+}
+
+
+.membership_card:first-child:before {
+    left: calc(50% + 10px);
+}
+
+.membership_card:last-child:before {
+    right: calc(50% + 10px);
+}
+
+
+@media (max-width: 820px){
+    .membership_cards_container::after{
+        height: calc((var(--space-g) * 2) - 20px);
+    }
+    .membership_card:first-child::after {
+        display: none;
+    }
+    .membership_card:after{
+        height: var(--space-b);
+    }
+    .membership_card:before {
+        display:none;
+    }
+}

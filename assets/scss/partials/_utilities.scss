@@ -1,0 +1,80 @@
+/*added by gutenberg editor*/
+/* -- gutenberg editor styles -- */
+.has-s-font-size, .has-s-font-size li, .has-s-font-size strong{
+    font-size: var(--step--1);
+}
+.has-default-font-size, .has-default-font-size li, .has-default-font-size strong{
+    font-size: var(--step-0);
+}
+.has-m-font-size, .has-m-font-size li, .has-m-font-size strong {
+    font-size: var(--step-1);
+}
+.has-l-font-size, .has-l-font-size li, .has-l-font-size strong {
+    font-size: var(--step-2);
+}
+.has-xl-font-size, .has-xl-font-size li, .has-xl-font-size strong{
+    font-size: var(--step-5);
+}
+.has-xxl-font-size, .has-xxl-font-size li, .has-xxl-font-size strong{
+    font-size: var(--step-8);
+}
+.has-xxxl-font-size, .has-xxxl-font-size li, .has-xxxl-font-size strong{
+    font-size: var(--step-10);
+}
+
+/*colours set in functions/setup.php*/
+$colors: 
+primary,
+white, 
+lgrey,
+dgrey,
+black,
+gold,
+mgrey;
+
+@each $color in $colors {
+	.has-#{$color}-background-color {
+		background-color: var(--color-#{$color});
+	}
+	.has-#{$color}-color {
+		color: var(--color-#{$color});
+	}
+}
+
+.has-text-align-center{
+    text-align: center;
+}
+
+ul.icon-check{
+	list-style-type: none;
+    padding-left: 0;
+
+}
+.icon-check li{
+	padding-left: 30px;
+	position: relative;
+	margin-bottom: 15px;
+}
+
+
+.icon-check li:before{
+    content:'';
+    background-image: url('data: image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16.447" height="16.447" viewBox="0 0 16.447 16.447"><path id="Check_Mark" d="M8.224,16.447A8.224,8.224,0,0,1,8.224,0a8.388,8.388,0,0,1,5.422,2.045,8.05,8.05,0,0,1,2.8,6.178A8.233,8.233,0,0,1,8.224,16.447Zm0-15.419a7.2,7.2,0,1,0,7.2,7.2A7.2,7.2,0,0,0,8.224,1.028ZM7.045,11.157l5.14-5.14a.514.514,0,1,0-.727-.727L6.682,10.067,4.989,8.374a.514.514,0,0,0-.727.727l2.056,2.056a.514.514,0,0,0,.727,0Z" fill="rgb(236 168 52)"/></svg>');
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-position: top left;
+	background-repeat: no-repeat;
+    display: inline-block;
+    
+    position: absolute;
+	left: 0;
+    top: 3px;
+}
+
+.are-vertically-aligned-top{
+    align-items: flex-start;
+}
+.is-vertically-aligned-top{
+    align-self: flex-start;
+}

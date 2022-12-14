@@ -1,0 +1,124 @@
+/* === SHOP PAGE STYLING === */
+
+.woocommerce ul.products{
+    width: 100%;
+    gap: var(--space-gap);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .woocommerce-loop-product__title{
+        word-break: break-word;
+    }
+}
+.woocommerce-loop-product__link{
+    padding: var(--space-panel-padding);
+    > img{
+        margin-left: calc(var(--space-panel-padding) * -1)!important;
+        margin-top: calc(var(--space-panel-padding) * -1)!important;
+        width: calc(100% + var(--space-panel-padding) * 2)!important;
+       max-width: calc(100% + var(--space-panel-padding) * 2)!important;
+    }
+}
+@media (max-width: 1140px){
+    .woocommerce ul.products{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media (max-width: 768px){
+    .woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product{
+        width: 100%!important;
+    }
+    
+    
+}
+@media (max-width: 640px){
+    .woocommerce ul.products{
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+.woocommerce li.product{
+    text-decoration: none;
+    background-color: var(--color-mgrey);
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    color: var(--color-lgrey);
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 768px){
+    .woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product{
+        margin:0;
+    }
+}
+
+
+
+
+.woocommerce ul.products::before{
+    display:none;
+}
+.woocommerce ul.products li.product, 
+.woocommerce-page ul.products li.product{
+    width: 100%;
+    margin: 0;
+    transition: var(--transition);
+}
+.woocommerce ul.products li.product:hover, 
+.woocommerce-page ul.products li.product:hover,
+.woocommerce ul.products li.product:focus, 
+.woocommerce-page ul.products li.product:focus{
+    box-shadow: 0px 0px 25px rgba(247,247,247, 0.2);    
+
+}
+.woocommerce-loop-product__link{
+    text-align: center;
+    font-size: var(--step-1);
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title{
+    color: white;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5em;
+    border: none;
+    flex-grow: 1;
+}
+.size-woocommerce_thumbnail{
+    border-radius: 0;
+    background-color: #888887;
+    width: 100%;
+    margin-bottom: var(--space-b)!important;
+}
+.woocommerce ul.products li.product .price{
+    color: var(--color-gold);
+    margin: var(--space-c) auto 0;
+    font-weight: var(--font-weight-bold);
+}
+.woocommerce ul.products li.product .price::after{
+    content: url('../../assets/img/Group58.png');
+    width: 80px;
+    display: block;
+    transition: var(--transition);
+    margin: var(--space-b) auto 0;
+}
+
+
+
+.woocommerce ul.products li.product .button{
+    display: none;
+}
+.woocommerce ul.products li.product:hover, 
+.woocommerce-page ul.products li.product:hover,
+.woocommerce ul.products li.product:focus, 
+.woocommerce-page ul.products li.product:focus{
+    box-shadow: 0px 0px 25px rgba(247,247,247, 0.2);    
+    .price::after{
+        transform: translateX(10px);
+    }
+
+}

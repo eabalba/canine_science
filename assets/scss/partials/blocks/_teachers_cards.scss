@@ -1,0 +1,75 @@
+/* === TEACHER'S CARD BLOCK STYLING === */
+.teachers_cards{
+    margin-bottom: 0;
+    padding-bottom: var(--space-row-margin);
+}
+.card_header{
+    max-width: var(--width-narrow);
+    text-align: center;
+    padding-bottom: var(--space-d);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards_wrapper{
+    gap: var(--space-gap);
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: var(--space-b);
+    justify-content: center;
+}
+.teachers_single_card{
+    width: 320px;
+    max-width: 100%;
+}
+
+.teachers_image_group{
+    display: block;
+    aspect-ratio: 1/1;
+    width: 100%;
+    margin-bottom: var(--space-b);
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    svg{
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        transform: scale(1);
+        transition: var(--transition);
+        transform-origin: 100% 100%;
+    }
+    &.teachers_link{
+        &:hover, &:focus{
+            svg{
+                transform: scale(1.5);
+            }
+        }
+    }
+    h3{
+        font-size: var(--step-3);
+        margin-bottom: 20px;
+    }
+}
+@media(max-width: 768px) and (min-width: 460px){
+    .teachers_single_card{
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        .teachers_image_group{
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+        }
+        h3{
+            margin-bottom: 10px;
+        }
+
+    }
+
+}
